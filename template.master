@@ -1,0 +1,221 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="template.master.cs" Inherits="template" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <link id="page_favicon" type="image/x-icon" rel="icon" href="images/public/favicon.ico" />
+    <meta charset="UTF-8" />
+    <link href="css/public/style.css" type="text/css" rel="stylesheet" />
+    <link href="css/public/menustyle.css" rel="stylesheet" />
+    <link href="css/public/styleslide.css" type="text/css" rel="stylesheet" />
+    <script src="js/public/jquery-lasttest.js"></script>
+    <script src="js/public/script.js"></script>
+    <script src="js/public/jquery-google.js"></script>
+    <script type="text/javascript" src="js/public/slide.js"></script>
+    <script src="js/public/browser.js"></script>
+    <script src="js/public/jquery.dcmegamenu.1.2.js"></script>
+    <script src="js/public/jquery.hoverIntent.minified.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#mega-menu-tut').dcMegaMenu({
+                rowItems: '3',
+                speed: 'fast'
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="top"></a>
+    <a class="totop" title="Back to Top" href="#top">&uarr;</a>
+    <form id="form1" runat="server">
+        <div class="top">
+            <div class="topmenu">
+                <div class="top-left">
+                    <ul class="top-menu">
+                        <li class="top-menu-item"><a class="link-menutopse" href="/" title="FM Style">FM Style</a></li>
+                        <li class="top-menu-item"><a class="link-menutop" href="huongdanmuahang.aspx" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a></li>
+                        <li class="top-menu-item"><a class="link-menutop" href="chinhsachmuahang.aspx" title="Chính sách mua hàng">Chính sách mua hàng</a></li>
+                    </ul>
+                </div>
+                <div class="top-right">
+                    <ul class="top-menu">
+
+                        <li class="top-menu-right-item"><a class="link-menutop-right" href="giohang.aspx" title="Giỏ hàng">Giỏ hàng
+                            <asp:Label ID="lbCountCart" runat="server" Style="background-color: red; border: 0px none; padding: 1px 3px; color: #fff; margin-left: 1px; font-size: 12px; border-radius: 4px" Text=""></asp:Label>
+                        </a></li>
+                        <li class="top-menu-right-item"><a class="link-menutop-right" href="thongtincanhan.aspx" title="Thông tin cá nhân">
+                            <asp:Label ID="lbTen" runat="server" Text=""></asp:Label></a></li>
+                        <li class="top-menu-right-item">
+                            <asp:LinkButton ID="lbtnLog" class="link-menutop-right" runat="server" CausesValidation="False"></asp:LinkButton>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+        <div class="wrapper">
+            <div class="space"></div>
+            <div class="header">
+                <div class="header-left">
+                    <a href="/" title="FM Style">
+                        <img src="/images/public/logo.png" alt="FM STYLE"></img>
+                    </a>
+
+                </div>
+                <div class="header-middle">
+                    <div class="search_bar">
+                        <asp:DropDownList ID="search_se" class="search_se" runat="server"></asp:DropDownList>
+
+                        <%-- <asp:TextBox class="txtSearch" ID="txtSearch" placeholder="Tìm kiếm..." runat="server"></asp:TextBox>
+                        
+                        <asp:Button class="btnSearch" ID="btnSearch" runat="server" Text="Tìm kiếm" ToolTip="Tìm kiếm" OnClick="btnSearch_Click"/>
+                        --%>
+                        <input class="txtSearch" id="txtSearch" placeholder="Nhập vào tên sản phẩm..." type="text" />
+
+                        <input class="btnSearch" id="btnSearch" type="button" value="Tìm kiếm" title="Tìm kiếm" onclick="loadsptimkiem();" />
+                    </div>
+                </div>
+                <div class="header-right"></div>
+                <div class="clr"></div>
+                <div class="dcjq-mega-menu">
+                    <ul id="mega-menu-tut" class="menu">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a>
+                            <ul>
+                                <asp:Repeater ID="menusubtitle" runat="server">
+                                    <ItemTemplate>
+                                        <%# Eval("ten_danhmuc") %>
+                                    </ItemTemplate>
+
+                                </asp:Repeater>
+                            </ul>
+                        </li>
+                    </ul>
+                    </li>
+
+                        <li><a href="gioithieu.aspx">Giới thiệu</a></li>
+                    <li><a href="lienhe.aspx">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="clr"></div>
+            <div class="containt">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="clr"></div>
+            <div class="footer">
+                <div class="footer-menu">
+
+                    <div class="clearfix">
+                        <dl class="col-md-4">
+                            <dt>về chúng tôi</dt>
+                            <dd>
+                                <a href="lienhe.aspx">Liên hệ</a></dd>
+                            <dd>
+                                <a href="dieukhoansudung.aspx">Điều khoản sử dụng</a></dd>
+                            <dd>
+                                <a href="chinhsachbaohanh.aspx">Chính sách bảo hành</a></dd>
+                            <dd>
+                                <a href="chinhsachbaomat.aspx">Chính sách bảo mật thông tin</a></dd>
+                        </dl>
+                        <dl class="col-md-4">
+                            <dt>trợ giúp</dt>
+                            <dd>
+                                <a href="hoidap.aspx">Hỏi đáp</a></dd>
+                            <dd>
+                                <a href="huongdanmuahang.aspx">Hướng dẫn mua hàng</a></dd>
+                 
+                            <dd>
+                                <a href="lienhe.aspx">Góp ý - Ý kiến khách hàng</a></dd>
+                            <dd>
+                                <a title="mua hang gia re, mua hang online" href="/">Mua hàng giá rẻ</a></dd>
+                        </dl>
+                        <dl class="col-md-4">
+                            <dt>hợp tác</dt>
+                            <dd>
+                                <a href="hoptac.aspx">Hợp tác kinh doanh</a></dd>
+                            <dd>
+                                <a href="lienhehoptac.aspx">Liên hệ hợp tác</a></dd>
+                            <dd>
+                                <a href="tuyendung.aspx">Tuyển dụng</a></dd>
+                        </dl>
+                    </div>
+
+                </div>
+
+                <div class="footer-address">
+                    <div class="footer-address-left">
+                        <h3 class="footer-address-h3">LIÊN HỆ VỚI CHÚNG TÔI HỆ THỐNG SHOP THỜI TRANG FM STYLE</h3>
+                        <ul class="footer-address-ul">
+                            <li class="footer-address-li">415-417 Lê Duẩn, Q. Thanh Khê</li>
+                            <li class="footer-address-li">236 Lê Duẩn, Q. Thanh Khê</li>
+                            <li class="footer-address-li">81 Phan Đăng Lưu, Q. Hải Châu</li>
+                            <li class="footer-address-li">125 Nguyễn Lương Bằng, Q. Liên Chiểu</li>
+                            <li class="footer-address-li">36 Âu Cơ, Q. Liên Chiểu</li>
+                            <li class="footer-address-li">173 Bà Triệu, Thành Phố Huế</li>
+                            <li class="footer-address-li">132 Phan Châu Trinh, Tam Kỳ</li>
+                        </ul>
+                    </div>
+                    <div class="footer-address-right">
+                        <div class="sdt">
+                            <ul>
+                                <li>Hot Line:<span style="color: #01c4c4">05116.566.236</span>(Đà Nẵng)</li>
+                                <li>Thông tin giá sỉ:<span style="color: #01c4c4">0947513579</span></li>
+                            </ul>
+                        </div>
+                        <div class="social">
+                            <div class="social-cotaint">
+
+                                <dl class="col-md-5">
+                                    <dt>FOLLOW US</dt>
+                                    <dd>
+                                        <a href="http://facebook.com/">Facebook</a></dd>
+                                    <dd>
+                                        <a href="http://google.com/">Google+</a></dd>
+                                    <dd>
+                                        <a href="http://twitter.com/">Twitter</a></dd>
+
+
+                                </dl>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    Copyright 2009-2014 All rights reserved. fmstyle.vn
+					
+                </div>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+
+    function loadsptimkiem() {
+        column = $('#search_se').val();
+        value = $('#txtSearch').val();
+        if (value != "") {
+            $.ajax({
+                type: "POST",
+                url: "ajax/timkiem.aspx",
+                data: { co: column, va: value },
+                success: function (data) {
+                    $(".containt").html(data);
+                }
+            })
+        }
+    }
+</script>

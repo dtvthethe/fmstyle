@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="templateadmin.master.cs" Inherits="admin_templateadmin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../images/public/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <script src="../js/admin/jquery-1.11.1.min.js"></script>
+    <link href="../css/admin/style.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <div class="col w5 bottomlast">
+                <a href="Default.aspx" class="logo">
+                    <img class="img_logo" src="../images/admin/footer_logo.gif" alt="Logo" />
+                </a>
+            </div>
+            <div class="col w5 last right bottomlast">
+                <p class="last">
+                    Chào <span class="strong">
+                        <asp:Label ID="lbHi" runat="server" Text=""></asp:Label>
+                    </span>| 
+                    <asp:LinkButton ID="lbLog" runat="server" OnClick="lbLog_Click" CausesValidation="False"></asp:LinkButton>
+                </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="wrapper">
+            <div id="minwidth">
+                <div id="holder">
+                    <div id="menu">
+                        <div id="left"></div>
+                        <div id="right"></div>
+                        <ul>
+
+                            <li>
+                                <a href="sanpham.aspx"><span>Sản phẩm</span></a>
+                            </li>
+                            <li>
+                                <a href="danhmuc.aspx"><span>Danh mục</span></a>
+                            </li>
+
+                            <li>
+                                <a href="dathang.aspx"><span>Đặt hàng <strong style="color: red">
+                                    <asp:Label Style="margin: 0; float: right; background-color: red; color: #fff; padding: 0px 2px; border-radius: 5px; margin-left: 5px; font-size: 11px" ID="lbDatHang" runat="server" Text=""></asp:Label></strong></span></a>
+                            </li>
+                           
+                            
+                            <asp:Label ID="lbQuangCao" runat="server" Text="<li><a href='quangcao.aspx'><span>Quảng cáo</span></a></li>"></asp:Label>
+                            <asp:Label ID="lbSlide" runat="server" Text="<li><a href='slide.aspx'><span>Slide</span></a></li>"></asp:Label>
+
+
+                            <asp:Label ID="lbLHT" runat="server" Text="<li><a href='lienhe.aspx'><span>Liên hệ <strong style='color: red'>"></asp:Label>
+                            <asp:Label Style="float: right; background-color: red; color: #fff; padding: 0px 2px; border-radius: 5px; margin-left: 5px; font-size: 11px" ID="lbLienHe" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="lbLHB" runat="server" Text="</strong></span></a></li>"></asp:Label>
+
+
+                            <asp:Label ID="lbNguoiDung" runat="server" Text="<li><a href='nguoidung.aspx'><span>Người dùng</span></a></li>"></asp:Label>
+                            <asp:Label ID="lbPhuongThuc" runat="server" Text="<li><a href='phuongthuc.aspx'><span>Thanh toán</span></a></li>"></asp:Label>
+                            <asp:Label ID="lbRole" runat="server" Text="<li><a href='role.aspx'><span>Role</span></a></li>"></asp:Label>
+                            <asp:Label ID="lbThongKe" runat="server" Text="<li><a href='thongke.aspx'><span>Thống kê</span></a></li>"></asp:Label>
+                            <asp:Label ID="lbKhuyenMai" runat="server" Text="<li><a href='khuyenmai.aspx'><span>Khuyến mãi</span></a></li>"></asp:Label>
+                           
+                            
+                             <li>
+                                <a href="thongtin.aspx"><span>Thông tin</span></a>
+                            </li>
+
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div id="desc">
+                        <div class="help" id="table">
+
+
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+
+
+
+                            <div class="clear"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p class="last">Copyright 2014 - FMStyle - 146D, Nguyễn Thị Thập, Liên Chiểu, Đà Nẵng</p>
+        </div>
+    </form>
+</body>
+</html>
